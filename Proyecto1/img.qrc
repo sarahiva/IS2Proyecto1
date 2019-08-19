@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/iconos">
+        <file>usuario.png</file>
+        <file>imagenes/regresa.png</file>
+        <file>imagenes/megusta.png</file>
+        <file>imagenes/nomegusta.png</file>
+        <file>imagenes/siguiente.png</file>
+        <file>imagenes/cargar.jpg</file>
+    </qresource>
+</RCC>
