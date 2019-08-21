@@ -1,0 +1,15 @@
+<RCC>
+  <qresource prefix="/">
+    <file>imagenes/usuario_128x128.png</file>
+    <file>imagenes/fondo.jpg</file>
+    <file>imagenes/usuario.png</file>
+    <file>imagenes/siguiente.png</file>
+    <file>imagenes/regresa.png</file>
+    <file>imagenes/nomegusta.png</file>
+    <file>imagenes/megusta.png</file>
+    <file>imagenes/cargar.jpg</file>
+    <file>estilos/main.qss</file>
+    <file>estilos/amoled.qss</file>
+    <file>estilos/ubuntu.qss</file>
+  </qresource>
+</RCC>
