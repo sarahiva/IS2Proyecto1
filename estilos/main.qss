@@ -1,0 +1,203 @@
+
+* {
+    
+    background-color: #EFEFEF;
+    color: rgb(35,38,39);
+}
+QDialogButtonBox {
+    dialogbuttonbox-buttons-have-icons: 0;
+}
+QLineEdit,
+QSpinBox,
+QDoubleSpinBox,
+QComboBox {
+    height: 28px;
+}
+
+
+
+QTableView:focus,
+QListView:focus,
+QLineEdit:focus,
+QSpinBox:focus,
+QDoubleSpinBox:focus,
+QComboBox:focus {
+    border: 2px solid rgb(61,174,233);
+    border-radius: 4px;
+}
+
+/* QSpinBox::up-arrow, */
+/* QDoubleSpinBox::up-arrow{ */
+/*     image: url(":/icons/uparrow.svg"); */
+/* } */
+
+/* QSpinBox::down-arrow, */
+/* QDoubleSpinBox::down-arrow { */
+/*     image: url(":/icons/downarrow.svg"); */
+/* } */
+
+QPushButton {
+    color: rgb(239,240,241);
+    background-color: #005A89;
+    
+    border: none;
+    /* border: 1px solid rgb(46, 52, 54); */
+    border-radius: 0px;
+    min-height: 32px;
+    min-width: 72px;
+    padding-left: 4px;
+    padding-right: 4px;
+    outline: 0px;
+    /* outline-style: dotted; */
+    /* outline-color: white; */
+    /* outline-radius: 4px; */
+    /* outline-offset: 2px; */
+
+}
+
+QPushButton:hover {
+    background-color: rgb(61,174,233);
+}
+
+QPushButton:pressed {
+    background-color:  rgb(49,54,59);
+}
+
+QPushButton:disabled {
+    color: rgb(139,140,141);
+    background: rgb(59,64,69);
+}
+/* QHBoxLayout#botonesVenta QPushButton { */
+/*     font-size: 18px; */
+/*     font-weight: bold; */
+/* } */
+/* QPushButton#cancelarBtn { */
+/*     background-color: rgb(110, 21, 23); */
+/* } */
+/* QPushButton#cancelarBtn:hover { */
+/*     background-color: rgb(210, 21, 23); */
+/* } */
+
+/* QPushButton#cancelarBtn:pressed { */
+/*     background-color: rgb(60, 11, 13); */
+/* } */
+
+
+/* QLabel#viewLabel */
+/* { */
+/*     font-size: 26px; */
+/*     font-weight: bold; */
+/* } */
+
+
+/* QToolBar#toolBar { */
+/*     border: none; */
+/*     padding: 0px; */
+/*     background-color: rgb(57,57,57); */
+/* } */
+
+/* QPushButton#abrirCerrarBtn, */
+/* QPushButton#arqueoBtn, */
+/* QPushButton#movimientoBtn, */
+/* QPushButton#movimientosBtn, */
+/* QPushButton#retirarBtn { */
+/*     font-weight: bold; */
+/*     font-size: 18pt; */
+/*     text-align: left; */
+/*     padding: 5px; */
+/*     padding-left: 30px; */
+/*     padding-right: 30px; */
+/* } */
+/* QToolBar#toolBar QToolButton { */
+/*     color: rgb(238,238,236); */
+/*     background-color: none; */
+/*     width: 96px; */
+/*     height: 96px; */
+/*     border: none; */
+/*     padding: 24px; */
+/* } */
+/* QToolBar#toolBar QToolButton:hover { */
+/*     background-color: rgb(61,174,233); */
+/* } */
+
+/* QToolBar#toolBar QToolButton:checked { */
+/*     background-color: rgb(61,174,233);     */
+/* } */
+
+/* QFrame#loginFrame { */
+/*     border-image: url(:/icons/user.png); */
+/* } */
+
+/* QPushButton#salirBtn { */
+/*     width: 32px; */
+/*     height: 32px; */
+/*     font-size: 32px; */
+/* } */
+
+/* QCheckBox::indicator:unchecked { */
+/*     image: url(":/icons/toggle_button_off.svg"); */
+/* } */
+
+/* QCheckBox::indicator:checked { */
+/*     image: url(":/icons/toggle_button_on.svg"); */
+/* } */
+
+
+/* QGroupBox#infoCajaGBox QLabel { */
+/*     font-size: 14pt; */
+/* } */
+
+/* QGroupBox#infoCajaGBox { */
+/*     font-size: 18pt; */
+/* } */
+
+/* #ventaLabel, #folioLabel { */
+/*     font-size: 14pt; */
+/*     font-weight: bold; */
+/* } */
+
+
+/* QPushButton:flat { */
+/*     background-color: none; */
+/*     border: none; */
+/*     color: rgb(35,38,39); */
+  
+/* } */
+/* QPushButton:flat:hover { */
+/*     color: rgb(61,174,233); */
+/* } */
+
+/* QPushButton#newVenta { */
+/*     height: 64px; */
+/*     width: 200px; */
+/*     font-size: 24px; */
+/* } */
+
+/* QListView#usrView { */
+
+/*     margin-left: 20px; */
+                  
+/* } */
+/* QListView#usrView::item { */
+/*     border: 1px solid rgb(139,140,141); */
+/*     height: 64px; */
+/*     border-radius: 2px; */
+/*     font-size: 16px; */
+
+        
+/* } */
+
+/* QListView#usrView::item:selected { */
+
+/*     color: rgb(239,240,241); */
+/*     background-color: #308CC6; */
+
+/* } */
+
+InicioAdmin QPushButton {
+    min-width: 300px;
+}
+
+QPushButton#loginIcon {
+    background-color: red;
+}
