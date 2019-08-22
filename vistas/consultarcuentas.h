@@ -1,13 +1,13 @@
 #ifndef CONSULTARCUENTAS_H
 #define CONSULTARCUENTAS_H
 
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class ConsultarCuentas;
 }
 
-class ConsultarCuentas : public QWidget
+class ConsultarCuentas : public QDialog
 {
     Q_OBJECT
 

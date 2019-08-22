@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/">
+    <file>imagenes/ppd.png</file>
     <file>imagenes/usuario_128x128.png</file>
     <file>imagenes/fondo.jpg</file>
     <file>imagenes/usuario.png</file>

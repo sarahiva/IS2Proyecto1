@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
-
+CONFIG += debug
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets sql
 
 TARGET = Proyecto1
@@ -14,8 +14,7 @@ DESTDIR = build
 OBJECTS_DIR = build/objs
 MOC_DIR = build/mocs
 UI_DIR = vistas
-VPATH = vistas forms estilos
-
+VPATH = vistas forms estilos controles modelos utils
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -33,7 +32,7 @@ CONFIG += c++14
 SOURCES += \
         main.cpp \
     electorwidget.cpp \
-    candidato.cpp \
+    candidatowidget.cpp \
     resultados.cpp \
     perfilcandidato.cpp \
     inicioadmin.cpp \
@@ -44,11 +43,20 @@ SOURCES += \
     generarcuentas.cpp \
     consultarcuentas.cpp \
     crearprocesoelec.cpp \
-    login.cpp
+itemcandidato.cpp \
+    login.cpp \
+    controles/ctrlcampagnas.cpp \
+    modelos/eleccion.cpp \
+    modelos/propaganda.cpp \
+    controles/ctrlprocesoelectoral.cpp \
+    controles/ctrlcuentas.cpp \
+    controles/ctrlusuarios.cpp \
+    modelos/candidato.cpp \
+    modelos/elector.cpp
 
 HEADERS += \
     electorwidget.h \
-    candidato.h \
+    candidatowidget.h \
     resultados.h \
     perfilcandidato.h \
     inicioadmin.h \
@@ -59,12 +67,23 @@ HEADERS += \
     generarcuentas.h \
     consultarcuentas.h \
     crearprocesoelec.h \
-    login.h
+    itemcandidato.h \
+    login.h \
+    controles/ctrlcampagnas.h \
+    modelos/eleccion.h \
+    modelos/propaganda.h \
+    modelos/usuario.h \
+    controles/ctrlprocesoelectoral.h \
+    controles/ctrlcuentas.h \
+    controles/ctrlusuarios.h \
+    modelos/candidato.h \
+    utils/csv.h \
+    modelos/elector.h
     
 
 FORMS += \
     electorwidget.ui \
-    candidato.ui \
+    candidatowidget.ui \
     resultados.ui \
     perfilcandidato.ui \
     inicioadmin.ui \
@@ -75,6 +94,7 @@ FORMS += \
     generarcuentas.ui \
     consultarcuentas.ui \
     crearprocesoelec.ui \
+    itemCandidato.ui \
     login.ui
 
 # Default rules for deployment.

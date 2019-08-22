@@ -2,7 +2,7 @@
 #include "ui_generarcuentas.h"
 
 GenerarCuentas::GenerarCuentas(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::GenerarCuentas)
 {
     ui->setupUi(this);

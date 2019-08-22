@@ -1,5 +1,5 @@
-#ifndef CANDIDATO_H
-#define CANDIDATO_H
+#ifndef CANDIDATOWIDGET_H
+#define CANDIDATOWIDGET_H
 
 #include <QWidget>
 
@@ -19,4 +19,4 @@ private:
     Ui::CandidatoWidget *ui;
 };
 
-#endif // CANDIDATO_H
+#endif // CANDIDATOWIDGET_H

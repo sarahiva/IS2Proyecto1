@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>754</width>
+    <width>890</width>
     <height>524</height>
    </rect>
   </property>
@@ -16,7 +16,29 @@
   <property name="windowTitle">
    <string>Formulario Elector</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="ItemCandidato" name="widget_4" native="true"/>
+     </item>
+     <item>
+      <widget class="ItemCandidato" name="widget_2" native="true"/>
+     </item>
+     <item>
+      <widget class="ItemCandidato" name="widget_5" native="true"/>
+     </item>
+     <item>
+      <widget class="ItemCandidato" name="widget_3" native="true"/>
+     </item>
+     <item>
+      <widget class="ItemCandidato" name="widget_6" native="true"/>
+     </item>
+     <item>
+      <widget class="ItemCandidato" name="widget" native="true"/>
+     </item>
+    </layout>
+   </item>
    <item>
     <widget class="QFrame" name="frame">
      <property name="frameShape">
@@ -25,22 +47,18 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QStackedWidget" name="stackedWidget">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>139</y>
-        <width>736</width>
-        <height>381</height>
-       </rect>
-      </property>
-      <widget class="QWidget" name="page"/>
-      <widget class="QWidget" name="page_2"/>
-     </widget>
     </widget>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ItemCandidato</class>
+   <extends>QWidget</extends>
+   <header>itemcandidato.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

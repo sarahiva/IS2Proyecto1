@@ -19,13 +19,9 @@ public:
 private slots:
     void on_createProcBtn_clicked();    
     void on_publiBtn_clicked();
-
     void on_loadListBtn_clicked();
-
     void on_genCtasBtn_clicked();
-
     void on_ctasBtn_clicked();
-
     void on_cerrarSesionBtn_clicked();
 signals:
     void logout();

@@ -2,7 +2,7 @@
 #include "ui_perfilcandidato.h"
 
 PerfilCandidato::PerfilCandidato(QWidget *parent) :
-    QWidget(parent),
+   QDialog(parent),
     ui(new Ui::PerfilCandidato)
 {
     ui->setupUi(this);

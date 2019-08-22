@@ -3,6 +3,7 @@
 #include <QTranslator>
 #include <QLibraryInfo>
 #include <QFile>
+#include <QDebug>
 #include <QSqlDatabase>
 #include <QSqlError>
 
@@ -24,11 +25,17 @@ int main(int argc, char *argv[])
     app.installTranslator(&qtTranslator);
 
     //Base de datos
-    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL", "elecciones");
+    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL", "eleccion");
     db.setHostName("localhost");
     db.setUserName("adminer");
     db.setPassword("anubis%082334");
+    db.setPort(3306);
     db.setDatabaseName("elecciones");
+
+    db.open();
+    qDebug() << db.lastError().text();
+    qDebug()  << db;
+    
 
     QFile stylesheet(":/estilos/ubuntu.qss");
     stylesheet.open(QFile::ReadOnly);
@@ -36,7 +43,10 @@ int main(int argc, char *argv[])
     app.setStyleSheet(stylestr);
     stylesheet.close();
     Login login;
-    login.show();
+    if(login.exec())
+    {
+        return 0;
+    }
     return app.exec();
     
 }

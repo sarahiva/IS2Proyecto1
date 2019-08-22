@@ -1,13 +1,13 @@
 #ifndef GENERARCUENTAS_H
 #define GENERARCUENTAS_H
 
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class GenerarCuentas;
 }
 
-class GenerarCuentas : public QWidget
+class GenerarCuentas : public QDialog
 {
     Q_OBJECT
 

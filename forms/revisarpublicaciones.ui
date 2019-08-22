@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Publicacion</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="2">
@@ -74,7 +74,16 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QTextBrowser" name="textBrowser"/>
+      <widget class="QTextBrowser" name="textBrowser">
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;José Antonio Meade Kuribreña&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; En los primeros 100 días de gobierno lograr un Código Penal Único para castigar igual en todo el país delitos como: robo, extorsión, feminicidio, homicidio, secuestro y trata de personas, entre otros.&lt;br /&gt;Crear una Agencia de Investigación Especializada en los delitos más recurrentes en el país.&lt;br /&gt;Cuadruplicar la capacidad de investigación del Estado para garantizar el ejercicio judicial.&lt;br /&gt;Elaborar una estrategia contra la inseguridad.&lt;br /&gt;Impulsar la prevención como instrumento para frenar los altos índices de criminalidad.&lt;br /&gt;Utilizar la disuasión.&lt;br /&gt;Fortalecer el combate a la impunidad.&lt;br /&gt;Actualizar la Ley de Seguridad Interior.&lt;br /&gt;Dar certeza jurídica a las Fuerzas Armadas.&lt;br /&gt;Una ley que contenga un espacio de diálogo entre los servidores públicos y la ciudadanía.&lt;br /&gt;Combate frontal a la corrupción.&lt;br /&gt;Acabar con el fuero constitucional que tienen los presidentes de la República.&lt;br /&gt;Ministerios Públicos autónomos y de consigna.&lt;br /&gt;Declaración 7de7 obligatoria para todos los funcionarios públicos.&lt;br /&gt;Que el Sistema de Administración Tributaria (SAT), la Secretaría de Hacienda y Crédito Público (SHCP) y el Instituto Nacional Electoral (INE) formen parte del Sistema Nacional Anticorrupción.&lt;br /&gt;Contratos gubernamentales abiertos.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
      </item>
      <item row="0" column="2">
       <widget class="QPushButton" name="next">

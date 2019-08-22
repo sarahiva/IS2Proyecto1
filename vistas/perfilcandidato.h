@@ -1,13 +1,13 @@
 #ifndef PERFILCANDIDATO_H
 #define PERFILCANDIDATO_H
 
-#include <QWidget>
+#include <QDialog>
 
 namespace Ui {
 class PerfilCandidato;
 }
 
-class PerfilCandidato : public QWidget
+class PerfilCandidato : public QDialog
 {
     Q_OBJECT
 

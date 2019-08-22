@@ -1,5 +1,6 @@
 #include "electorwidget.h"
 #include "ui_electorwidget.h"
+#include "itemcandidato.h"
 #include <QMessageBox>
 #include <QCloseEvent>
 
