@@ -58,13 +58,13 @@ void CandidatoWidget::loadCandidato()
             ui->titulo->setEnabled(false);
             ui->textEdit->setEnabled(false);
         }
-        else if(edo == 2)
+        else if(edo == 3)
         {
             estado = "Rechazada";
             ui->titulo->setEnabled(true);
             ui->textEdit->setEnabled(true);
         }
-        else if(edo == 3)
+        else if(edo == 2)
         {
             estado = "Aprobada";
             ui->titulo->setEnabled(false);
@@ -95,9 +95,9 @@ void CandidatoWidget::on_guardar_clicked()
 
         if(query.exec())
         {
-            QMessageBox::information(this, "Información", "Su solicictud ha sido enviada");
-            ui->textEdit->setPlainText("");
-            ui->titulo->setText("");
+            QMessageBox::information(this, "Información", "Se ha guardado el articulo.");
+            // ui->textEdit->setPlainText("");
+            // ui->titulo->setText("");
         }
         else
         {

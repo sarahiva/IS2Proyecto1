@@ -16,7 +16,7 @@ public:
     ~Resultados();
 public slots:
 
-   
+    void clearLayout(QLayout *layout);
     void cargarCandidatos();
 
 private:

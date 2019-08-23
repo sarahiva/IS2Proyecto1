@@ -26,6 +26,7 @@ Resultados::~Resultados()
 
 void Resultados::cargarCandidatos()
 {
+    clearLayout(ui->resultados);
     QSqlDatabase db = QSqlDatabase::database("eleccion", true);
     ItemResultados *item;
     QSqlQuery query(nullptr, db);
@@ -50,4 +51,17 @@ void Resultados::cargarCandidatos()
         }       
     }
     
+}
+void Resultados::clearLayout(QLayout *layout) {
+    QLayoutItem *item;
+    while((item = layout->takeAt(0))) {
+        if (item->layout()) {
+            clearLayout(item->layout());
+            delete item->layout();
+        }
+        if (item->widget()) {
+           delete item->widget();
+        }
+        delete item;
+    }
 }

@@ -20,7 +20,7 @@ bool GestElecciones::yaVoto(QString elector)
         res = query.value("yaVoto").toInt();
         
     }
-    return res > 0;
+    return (res == 1);
     
 }
 

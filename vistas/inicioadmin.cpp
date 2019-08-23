@@ -12,6 +12,8 @@
 #include <QCloseEvent>
 #include <QMessageBox>
 
+#include <QDebug>
+
 InicioAdmin::InicioAdmin(QWidget *parent)
     : QMainWindow(parent),
       ui( new Ui::InicioAdmin)
@@ -92,6 +94,7 @@ void InicioAdmin::on_votarBtn_clicked()
 }
 void InicioAdmin::on_resultadosBtn_clicked()
 {
+    ui->resultados->cargarCandidatos();
     ui->stackedWidget->setCurrentIndex(1);
 }
 void InicioAdmin::on_candidatosBtn_clicked()
@@ -100,6 +103,7 @@ void InicioAdmin::on_candidatosBtn_clicked()
 }
 void InicioAdmin::on_adminBtn_clicked()
 {
+    ui->resultados->cargarCandidatos();
     ui->stackedWidget->setCurrentIndex(0);
 }
 
@@ -135,24 +139,30 @@ void InicioAdmin::login()
         tipo = "Candidato";
         ui->candidato->loadCandidato();
         on_candidatosBtn_clicked();
+         ui->toolbar->hide();
         break;
     }
     case 3: {
         tipo = "Elector";
+        qDebug() << GestElecciones::yaVoto(usr.usr);
         if(GestElecciones::yaVoto(usr.usr))
         {
             on_resultadosBtn_clicked();
+            ui->toolbar->hide();
+            qDebug() << "ya voto";
             break;
         }
         else
         {
             on_votarBtn_clicked();
+             ui->toolbar->hide();
             break;
         }
             
     } 
     default:
         tipo = "Desconocido";
+         ui->toolbar->hide();         
         break;
     }
     ui->tipoUsr->setText(tipo);
