@@ -3,13 +3,18 @@
 #include "itemcandidato.h"
 #include <QMessageBox>
 #include <QCloseEvent>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include "controles/ctrlusuarios.h"
+#include "controles/gestelecciones.h"
 
 ElectorWidget::ElectorWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ElectorWidget)
 {
     ui->setupUi(this);
-//    connect(ui->ButtonCerrarSesion, &QPushButton::clicked, this, &ElectorWidget::close);
+    cargarCandidatos();
+// connect(ui->ButtonCerrarSesion, &QPushButton::clicked, this, &ElectorWidget::close);
 }
 
 ElectorWidget::~ElectorWidget()
@@ -18,16 +23,52 @@ ElectorWidget::~ElectorWidget()
 }
 
 
-void ElectorWidget::closeEvent(QCloseEvent *event)
+void ElectorWidget::clear()
 {
+    using namespace Controles;
+    GestElecciones::votar(CtrlUsuarios::currentUser().usr);
+    
+    clearLayout(ui->listaCandidatos);
+       ui->gracias1->show();
+       ui->gracias2->show();
+       
+}
 
-    int res = QMessageBox::question(this, tr("Cerrar Sesión"), "¿Está seguro que desea salir?");
-    if(res == QMessageBox::Yes)
+void ElectorWidget::cargarCandidatos()
+{
+    QSqlDatabase db = QSqlDatabase::database("eleccion", true);
+    ui->gracias1->hide();
+    ui->gracias2->hide();
+    QSqlQuery query(nullptr, db);
+    if(query.exec("SELECT * FROM vListaCandidatos"))
     {
-
-        event->accept();        
+        QString clave, candidato, partido, emblema;
+        ItemCandidato *item;
+        while(query.next())
+        {
+           
+            clave = query.value("claveCandidato").toString();
+            candidato = query.value("candidato").toString();
+            partido  = query.value("partido").toString();
+            emblema = query.value("emblema").toString();
+            item = new ItemCandidato(this, candidato, partido, emblema, clave);
+            connect(item, &ItemCandidato::voted, this, &ElectorWidget::clear);
+            ui->listaCandidatos->addWidget(item);
+            
+        }
+        
     }
-    else
-        event->ignore();
-
+}
+void ElectorWidget::clearLayout(QLayout *layout) {
+    QLayoutItem *item;
+    while((item = layout->takeAt(0))) {
+        if (item->layout()) {
+            clearLayout(item->layout());
+            delete item->layout();
+        }
+        if (item->widget()) {
+           delete item->widget();
+        }
+        delete item;
+    }
 }

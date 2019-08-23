@@ -1,4 +1,5 @@
 #include "login.h"
+#include "utils/exceptions.h"
 #include <QApplication>
 #include <QTranslator>
 #include <QLibraryInfo>
@@ -43,10 +44,22 @@ int main(int argc, char *argv[])
     app.setStyleSheet(stylestr);
     stylesheet.close();
     Login login;
-    if(login.exec())
+    login.show();
+
+    int res=1;
+    try
     {
-        return 0;
+        
+        if(!db.open())
+            throw QSqlConnectionError(db.lastError().text());
+        res = app.exec();
+        db.close();
     }
-    return app.exec();
+    catch(const QSqlConnectionError &e)
+    {
+        qDebug() << e.qWhat();
+    }
+    return res;
+
     
 }

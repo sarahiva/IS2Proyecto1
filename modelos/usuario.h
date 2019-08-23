@@ -7,8 +7,11 @@ namespace Modelos
     struct Usuario
     {
         Usuario();
-        QString id;
-        QString password;
+        QString usr;
+        QString usrnombre;
+        QString pass;
+        int tipoUsuario;
+        
     };
 }
 

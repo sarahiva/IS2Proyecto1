@@ -14,6 +14,7 @@ class Resultados : public QWidget
 public:
     explicit Resultados(QWidget *parent = nullptr);
     ~Resultados();
+    
 
 private:
     Ui::Resultados *ui;

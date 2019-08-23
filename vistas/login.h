@@ -2,6 +2,7 @@
 #define LOGIN_H
 #include <QDialog>
 
+
 namespace Ui{
     class Login;
 }
@@ -13,9 +14,8 @@ class Login : public QDialog
     Q_OBJECT
 
  protected:
-    
     virtual void keyPressEvent(QKeyEvent *event) override;
-//    virtual void closeEvent(QCloseEvent *event) override;
+//  virtual void closeEvent(QCloseEvent *event) override;
     
 public:
     explicit Login(CtrlAutenticacion *a, int intentos, QWidget *parent = nullptr);

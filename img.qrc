@@ -1,5 +1,13 @@
 <RCC>
   <qresource prefix="/">
+    <file>imagenes/cegor.png</file>
+    <file>imagenes/mosuj.png</file>
+    <file>imagenes/cegor.png</file>
+    <file>imagenes/hebep.png</file>
+    <file>imagenes/ind.png</file>
+    <file>imagenes/pan.png</file>
+    <file>imagenes/prd.png</file>
+    <file>imagenes/pri.png</file>
     <file>imagenes/ppd.png</file>
     <file>imagenes/usuario_128x128.png</file>
     <file>imagenes/fondo.jpg</file>

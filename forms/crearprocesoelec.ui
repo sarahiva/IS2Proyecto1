@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>751</width>
-    <height>461</height>
+    <height>467</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,6 +19,13 @@
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <widget class="QLabel" name="label_4">
+     <property name="font">
+      <font>
+       <pointsize>18</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="text">
       <string>Proceso Electoral Presidencial</string>
      </property>
@@ -82,8 +89,13 @@
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <widget class="QLabel" name="filename">
+            <property name="font">
+             <font>
+              <italic>true</italic>
+             </font>
+            </property>
             <property name="text">
-             <string>Cargue un archivo por favor</string>
+             <string>No se ha seleccionado un archivo</string>
             </property>
            </widget>
           </item>
@@ -95,6 +107,12 @@
             <property name="icon">
              <iconset theme="folder">
               <normaloff>../../../../</normaloff>../../../../</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
             </property>
            </widget>
           </item>

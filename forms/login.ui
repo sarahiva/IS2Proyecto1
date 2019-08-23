@@ -156,8 +156,18 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
        <property name="placeholderText">
         <string>Contraseña</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="msgOut">
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </item>
@@ -224,5 +234,38 @@
  <resources>
   <include location="../img.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>username</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>msgOut</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>746</x>
+     <y>314</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>718</x>
+     <y>402</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>password</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>msgOut</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>806</x>
+     <y>357</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>809</x>
+     <y>395</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

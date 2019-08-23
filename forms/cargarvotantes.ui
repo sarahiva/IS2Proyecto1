@@ -106,7 +106,7 @@
         </font>
        </property>
        <property name="text">
-        <string>No se ha seleecionado un archivo.</string>
+        <string>No se ha seleccionado un archivo.</string>
        </property>
       </widget>
      </item>

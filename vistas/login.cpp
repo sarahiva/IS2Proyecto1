@@ -2,10 +2,12 @@
 #include "ui_login.h"
 #include "electorwidget.h"
 #include "inicioadmin.h"
+#include "controles/ctrlusuarios.h"
 #include <QGraphicsDropShadowEffect>
 #include <QKeyEvent>
 #include <QPixmap>
 #include <QBitmap>
+#include <QMap>
 
 Login::Login(CtrlAutenticacion *a, int intentos, QWidget *parent)
     : QDialog(parent),      
@@ -26,7 +28,7 @@ Login::Login(QWidget *parent)
     win = new InicioAdmin(this);
     
     connect(ui->accederBtn, &QPushButton::clicked, this, &Login::authenticate);
-    connect(this, &Login::loggedIn, win, &InicioAdmin::showMaximized);
+    connect(this, &Login::loggedIn, win, &InicioAdmin::login);
     connect(win, &InicioAdmin::logout, this, &Login::show);
     // connect(win, &QWidget::close, this, &Login::show);
 
@@ -63,18 +65,37 @@ void Login::keyPressEvent(QKeyEvent *event)
 
 void Login::authenticate()
 {
+    using namespace Controles;
+
     QString usrname = ui->username->text();
     QString passw = ui->password->text();
 
-     
+
+
+    
+    ui->username->clear();
+    ui->password->clear();    
+
+    if(usrname.isEmpty() || passw.isEmpty())
+    {
+        ui->msgOut->setText("Debe teclear su nombre de usuario y contraseña");
+        return;
+    }
+
+    auto user = CtrlUsuarios::getUser(usrname);   
+    if(user.usr != usrname || user.pass != passw)
+    {
+        ui->msgOut->setText("Usuario o contraseña no válidos");
+        return;
+    }
+        
     // if(usrname.isEmpty() || passw.isEmpty())
     // {
     //     ui->msgOut->setText("Introduzca los dos campos solicitados " + passw);
     //     return;
     // }
         
-    // ui->username->clear();
-    // ui->password->clear();
+
     
     // auto respuesta = auth->autenticar(usrname, passw);
     // int intentos = auth->getLastUserTries();
@@ -110,9 +131,8 @@ void Login::authenticate()
     //                         + " intentos.");        
     //     ui->username->setFocus();
     //     return;
-    //}
-    
-         
+    // }
+            
     emit loggedIn();
     hide() ;
 }

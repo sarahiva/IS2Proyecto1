@@ -5,6 +5,10 @@
 #include "generarcuentas.h"
 #include "cargarvotantes.h"
 #include "consultarcuentas.h"
+#include "controles/ctrlusuarios.h"
+#include "controles/gestelecciones.h"
+#include <QCloseEvent>
+#include <QMessageBox>
 
 InicioAdmin::InicioAdmin(QWidget *parent)
     : QMainWindow(parent),
@@ -61,4 +65,77 @@ void InicioAdmin::on_cerrarSesionBtn_clicked()
 {
     if(close())
         emit logout();
+        
+}
+
+
+void InicioAdmin::on_votarBtn_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+}
+void InicioAdmin::on_resultadosBtn_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+void InicioAdmin::on_candidatosBtn_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+void InicioAdmin::on_adminBtn_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void InicioAdmin::closeEvent(QCloseEvent *event)
+{
+
+    int res = QMessageBox::question(this, tr("Cerrar Sesión"), "¿Está seguro que desea salir?");
+    if(res == QMessageBox::Yes)
+    {
+        event->accept();
+    }
+    else
+        event->ignore();
+
+}
+
+void InicioAdmin::login()
+{
+    using namespace Controles;
+    auto usr = CtrlUsuarios::currentUser();
+    ui->ID->setText(usr.usr);
+    QString tipo;
+    switch (usr.tipoUsuario) {
+    case 1: {
+        tipo = "Administrador";
+        on_adminBtn_clicked();
+        break;
+    }
+    case 2: {
+        tipo = "Candidato";
+        ui->candidato->loadCandidato();
+        on_candidatosBtn_clicked();
+        break;
+    }
+    case 3: {
+        tipo = "Elector";
+        if(GestElecciones::yaVoto(usr.usr))
+        {
+            on_resultadosBtn_clicked();
+            break;
+        }
+        else
+        {
+            on_votarBtn_clicked();
+            break;
+        }
+            
+    } 
+    default:
+        tipo = "Desconocido";
+        break;
+    }
+    ui->tipoUsr->setText(tipo);
+    ui->nombreUsr->setText(usr.usrnombre);
+    showMaximized();
 }

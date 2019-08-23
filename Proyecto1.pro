@@ -51,6 +51,8 @@ itemcandidato.cpp \
     controles/ctrlprocesoelectoral.cpp \
     controles/ctrlcuentas.cpp \
     controles/ctrlusuarios.cpp \
+    modelos/usuario.cpp \
+    controles/gestelecciones.cpp \
     modelos/candidato.cpp \
     modelos/elector.cpp
 
@@ -78,6 +80,8 @@ HEADERS += \
     controles/ctrlusuarios.h \
     modelos/candidato.h \
     utils/csv.h \
+    gestelecciones.h  \
+    utils/exceptions.h \
     modelos/elector.h
     
 

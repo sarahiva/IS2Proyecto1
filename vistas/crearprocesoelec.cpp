@@ -23,6 +23,9 @@ CrearProcesoElec::CrearProcesoElec(QWidget *parent)
 CrearProcesoElec::~CrearProcesoElec()
 {
     delete ui;
+    ui->horaIni->setTime(QTime::currentTime());
+    ui->horaFin->setTime(QTime::currentTime().addSecs(24 * 60 * 60));
+    
 }
 
 void CrearProcesoElec::on_loadFileBtn_clicked()
