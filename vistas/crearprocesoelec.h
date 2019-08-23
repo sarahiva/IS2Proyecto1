@@ -11,21 +11,26 @@ namespace Ui {
     class CrearProcesoElec;
 }
 class QStringListModel;
-
+class QDataWidgetMapper;
+class QSqlTableModel;
+class QSqlQueryModel;
 class CrearProcesoElec : public QDialog
 {
     Q_OBJECT
     
 public:
     explicit CrearProcesoElec(QWidget *parent=nullptr);
+    void setupModel(int id);
     ~CrearProcesoElec();
 private slots:
     void on_loadFileBtn_clicked();
     void on_crearBtn_clicked();
-private:
+private:    
     Ui::CrearProcesoElec *ui;        
     Modelos::Eleccion *eleccion;
-    QStringListModel *model;
+    QSqlQueryModel  *model2;
+    QDataWidgetMapper *mapper;
+    int ideleccion;
 };
 
 #endif /* CREARPROCESOELEC_H */

@@ -7,6 +7,8 @@
 #include "consultarcuentas.h"
 #include "controles/ctrlusuarios.h"
 #include "controles/gestelecciones.h"
+#include "controles/ctrlprocesoelectoral.h"
+#include "modelos/eleccion.h"
 #include <QCloseEvent>
 #include <QMessageBox>
 
@@ -15,6 +17,8 @@ InicioAdmin::InicioAdmin(QWidget *parent)
       ui( new Ui::InicioAdmin)
 {
     ui->setupUi(this);
+    eleccion = Controles::CtrlProcesoElectoral::getEleccion();
+    ui->toolbar->hide();
 }
 
 InicioAdmin::~InicioAdmin()
@@ -63,11 +67,24 @@ void InicioAdmin::on_ctasBtn_clicked()
 
 void InicioAdmin::on_cerrarSesionBtn_clicked()
 {
-    if(close())
+    // if(close())
         emit logout();
         
 }
 
+void InicioAdmin::on_modProcBtn_clicked()
+{
+
+    if(eleccion == nullptr) return;
+
+    CrearProcesoElec elec(this);
+
+    elec.setupModel(eleccion->getID());
+    if(elec.exec() == QDialog::Accepted)
+    {
+        
+    }
+}
 
 void InicioAdmin::on_votarBtn_clicked()
 {
@@ -108,6 +125,9 @@ void InicioAdmin::login()
     switch (usr.tipoUsuario) {
     case 1: {
         tipo = "Administrador";
+        ui->toolbar->show();
+        ui->votarBtn->hide();
+        ui->candidatosBtn->hide();
         on_adminBtn_clicked();
         break;
     }

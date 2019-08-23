@@ -1,6 +1,6 @@
 #include "itemcandidato.h"
 #include "ui_itemCandidato.h"
-
+#include "perfilcandidato.h"
 #include <QSqlDatabase>
 #include <QSqlQuery>
 
@@ -46,5 +46,6 @@ void ItemCandidato::on_votar_clicked()
 }
 void ItemCandidato::on_verperfil_clicked()
 {
-    
+    PerfilCandidato perfil(this, clave);
+    perfil.exec();
 }

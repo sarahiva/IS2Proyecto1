@@ -2,11 +2,15 @@
 #define INCIOADMIN_H
 
 #include <QMainWindow>
-
+#include <QDate>
+#include <QTime>
 namespace Ui {
     class InicioAdmin;
 }
 
+namespace Modelos {
+    class Eleccion;
+}
 class InicioAdmin : public QMainWindow
 {
     Q_OBJECT
@@ -28,13 +32,14 @@ private slots:
     void on_resultadosBtn_clicked();
     void on_candidatosBtn_clicked();
     void on_adminBtn_clicked();
+    void on_modProcBtn_clicked();
 public slots:
     void login();
 signals:
     void logout();
 private:
-    Ui::InicioAdmin *ui;        
-
+    Ui::InicioAdmin *ui;
+    Modelos::Eleccion *eleccion;
 };
 
 

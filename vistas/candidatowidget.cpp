@@ -1,7 +1,7 @@
 #include "candidatowidget.h"
 #include "ui_candidatowidget.h"
 #include "controles/ctrlusuarios.h"
-
+#include <QMessageBox>
 #include <QSqlDatabase>
 #include <QSqlQueryModel>
 #include <QSqlQuery>
@@ -49,25 +49,27 @@ void CandidatoWidget::loadCandidato()
         if(edo == 0 )
         {
             estado = "Sin enviar";
-            
+            ui->titulo->setEnabled(true);
+            ui->textEdit->setEnabled(true);
         }
         else if(edo == 1)
         {
             estado = "En revisión";
             ui->titulo->setEnabled(false);
-            ui->titulo->setEnabled(false);
+            ui->textEdit->setEnabled(false);
         }
         else if(edo == 2)
         {
-            estado = "Cancelada";
-            ui->titulo->setEnabled(false);
-            ui->textEdit->setEnabled(false);
+            estado = "Rechazada";
+            ui->titulo->setEnabled(true);
+            ui->textEdit->setEnabled(true);
         }
         else if(edo == 3)
         {
             estado = "Aprobada";
             ui->titulo->setEnabled(false);
             ui->textEdit->setEnabled(false);
+
         }        
         ui->estado->setText(estado);
         
@@ -79,7 +81,28 @@ void CandidatoWidget::loadCandidato()
 }
 void CandidatoWidget::on_guardar_clicked()
 {
+ QString html = ui->textEdit->toPlainText();  
+    QSqlDatabase db = QSqlDatabase::database("eleccion", true);
+    QSqlQuery query(nullptr, db);
 
+
+     query.prepare("UPDATE Publicacion SET texto = :texto, titulo = :titulo, estado=0"
+                      " WHERE claveCandidato = :candidato");
+
+     query.bindValue(":titulo", ui->titulo->text());
+     query.bindValue(":texto", html);
+     query.bindValue(":candidato", candidato);
+
+        if(query.exec())
+        {
+            QMessageBox::information(this, "Información", "Su solicictud ha sido enviada");
+            ui->textEdit->setPlainText("");
+            ui->titulo->setText("");
+        }
+        else
+        {
+            QMessageBox::warning(this, "Error", "Ocurió un error, intente más tarde o contacte a su adminstrador.");
+        }
         
     
 }
@@ -91,25 +114,44 @@ void CandidatoWidget::on_textEdit_textChanged()
 
 void CandidatoWidget::on_solicitar_clicked()
 {
-    QString html = ui->textEdit->toHtml();  
+    QString html = ui->textEdit->toPlainText();  
     QSqlDatabase db = QSqlDatabase::database("eleccion", true);
     QSqlQuery query(nullptr, db);
-    if(currentfolio > 0)
-    {
-        query.prepare("UPDATE Publicacion SET texto = :texto"
-                      " WHERE folio = :folio");
-        query.bindValue(":folio", currentfolio);
-    }
+
+
+     query.prepare("UPDATE Publicacion SET texto = :texto, titulo = :titulo, estado=1"
+                      " WHERE claveCandidato = :candidato");
+
+     query.bindValue(":titulo", ui->titulo->text());
+     query.bindValue(":texto", html);
+     query.bindValue(":candidato", candidato);
+
+        if(query.exec())
+        {
+            QMessageBox::information(this, "Información", "Su solicictud ha sido enviada");
+            ui->textEdit->setPlainText("");
+            ui->titulo->setText("");
+        }
+        else
+        {
+            QMessageBox::warning(this, "Error", "Ocurió un error, intente más tarde o contacte a su adminstrador.");
+        }
+    // if(currentfolio > 0)
+    // {
+    //     query.prepare("UPDATE Publicacion SET texto = :texto"
+    //                   " WHERE folio = :folio");
+    //     query.bindValue(":folio", currentfolio);
+    // }
         
-    else
-    {
-        query.prepare("INSERT INTO Publicacion(titulo, texto, estado, claveCandidato, idEleccion ) "
-                      " VALUES(:titulo, :texto, 1, :candidato, :eleccion)");
-        query.bindValue(":text", ui->textEdit->toHtml());
-        query.bindValue(":candidato", candidato);
-        query.bindValue(":eleccion", eleccion);
+    // else
+    // {
+    //     query.prepare("INSERT INTO Publicacion(titulo, texto, estado, claveCandidato, idEleccion ) "
+    //                   " VALUES(:titulo, :texto, 1, :candidato, :eleccion)");
+    //     query.bindValue(":text", ui->textEdit->toHtml());
+    //     query.bindValue(":candidato", candidato);
+    //     query.bindValue(":eleccion", eleccion);
         
-    }
-    query.exec();
+    // }
+    // query.exec();
     
 }

@@ -14,7 +14,10 @@ class Resultados : public QWidget
 public:
     explicit Resultados(QWidget *parent = nullptr);
     ~Resultados();
-    
+public slots:
+
+   
+    void cargarCandidatos();
 
 private:
     Ui::Resultados *ui;

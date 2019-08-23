@@ -13,7 +13,7 @@ namespace Modelos {
         Eleccion(QDate fjornada, QTime iniJornada, QTime finJornada);
         void actualizaInfo();
         int getID() const { return idEleccion; }
-
+        friend class InicioAdmin;
       private:
         int idEleccion;
         QDate fechaJornada;

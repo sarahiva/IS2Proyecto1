@@ -50,6 +50,7 @@ itemcandidato.cpp \
     modelos/propaganda.cpp \
     controles/ctrlprocesoelectoral.cpp \
     controles/ctrlcuentas.cpp \
+    itemresultados.cpp \
     controles/ctrlusuarios.cpp \
     modelos/usuario.cpp \
     controles/gestelecciones.cpp \
@@ -82,6 +83,7 @@ HEADERS += \
     utils/csv.h \
     gestelecciones.h  \
     utils/exceptions.h \
+    itemresultados.h \
     modelos/elector.h
     
 
@@ -99,6 +101,7 @@ FORMS += \
     consultarcuentas.ui \
     crearprocesoelec.ui \
     itemCandidato.ui \
+    itemresultados.ui \
     login.ui
 
 # Default rules for deployment.

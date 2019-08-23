@@ -42,11 +42,11 @@ void ElectorWidget::cargarCandidatos()
     QSqlQuery query(nullptr, db);
     if(query.exec("SELECT * FROM vListaCandidatos"))
     {
+        
         QString clave, candidato, partido, emblema;
         ItemCandidato *item;
         while(query.next())
-        {
-           
+        {          
             clave = query.value("claveCandidato").toString();
             candidato = query.value("candidato").toString();
             partido  = query.value("partido").toString();

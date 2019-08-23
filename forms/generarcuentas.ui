@@ -15,7 +15,22 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Generación Automática de cuentas</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item row="1" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -53,6 +68,21 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <item>
+        <property name="text">
+         <string>Todos</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Electores</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Candidatos</string>
+        </property>
+       </item>
       </widget>
      </item>
      <item>
@@ -94,7 +124,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Seleccione una opción</string>
+        <string>Notificar por correo</string>
        </property>
       </widget>
      </item>
@@ -106,6 +136,16 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <item>
+        <property name="text">
+         <string>Si</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>No</string>
+        </property>
+       </item>
       </widget>
      </item>
      <item>
@@ -126,7 +166,7 @@
    <item row="3" column="0">
     <widget class="QPushButton" name="ButtonGenerarCuentas">
      <property name="text">
-      <string>GENERAR CUENTAS</string>
+      <string>Generar cuentas</string>
      </property>
     </widget>
    </item>

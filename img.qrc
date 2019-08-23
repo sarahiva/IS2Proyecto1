@@ -1,8 +1,8 @@
 <RCC>
   <qresource prefix="/">
+    <file>imagenes/roma.png</file>
     <file>imagenes/cegor.png</file>
     <file>imagenes/mosuj.png</file>
-    <file>imagenes/cegor.png</file>
     <file>imagenes/hebep.png</file>
     <file>imagenes/ind.png</file>
     <file>imagenes/pan.png</file>

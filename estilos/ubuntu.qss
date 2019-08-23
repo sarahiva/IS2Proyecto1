@@ -562,3 +562,7 @@ QScrollBar::down-arrow:vertical {
 QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
   	background: none;
 }
+
+/* QLabel#resultado { */
+/*     color: #FF2D33; */
+/* } */
